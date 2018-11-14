@@ -5,7 +5,7 @@ from .models import Game
 
 # Create your views here.
 def index(request):
-    game_list = Game.objects.order_by('id')[:10]
+    game_list = Game.objects.get(pk=110)
     template  = loader.get_template('gamefinderapp/index.html')
     context = {
         'game_list':game_list,

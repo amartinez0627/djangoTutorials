@@ -1,11 +1,10 @@
-{% load static %}
 {% if game_list %}
 
-    {% for game in game_list %}
+    
 
-    <img src="{% static 'gamefinderapp/media/images/Juego#001.jpg' %}">
+    <img src="{{ game_list.game_image.url }}">
     <br>
-    {% endfor %}
+   
 
 {% else %}
     <p>No games are available</p>
