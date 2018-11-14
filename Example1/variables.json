@@ -1,0 +1,25 @@
+{
+    "300":{
+        "outputFromat":"\"sel_ _cbtOutputFormat\"",
+        "addOperation":"\"JobEntryForm\"]/body/div[3]/table/tbody/tr[1]",
+        "wbsDropdown":"\"colPhaseID_1\"]/tbody/tr/td[2]",
+        "wbsSelect1":"\"0\""
+        
+    },
+
+    "200":{
+        "outputFromat":"\"sel_ _cbtOutputFormat\"",
+        "addOperation":"\"JobEntryForm\"]/body/div[3]/table/tbody/tr[2]",
+        "wbsDropdown":"\"colPhaseID_1\"]/tbody/tr/td[2]",
+        "wbsSelect1":"\"0\""
+        },
+    
+     "100":{
+        "outputFromat":"\"_cbtOutputFormatSelect\"",
+         "addOperation":"\"JobEntryForm\"]/body/div[3]/table/tbody/tr[2]",
+        "wbsDropdown":"\"colProjPhaseID_1\"]/tbody/tr/td[2]",
+        "wbsSelect1":"\"1\""
+        }
+    
+        
+}
