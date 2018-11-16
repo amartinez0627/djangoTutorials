@@ -1,8 +1,10 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'gamefinderapp/css/index-style.css' %}">
 <script src="{% static 'gamefinderapp/js/index-js.js' %}"></script>
-<script src="{% static 'gamefinderapp/js/RangeSlide.js' %}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+   rel = "stylesheet">
+<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 
 <header class="header">
@@ -16,34 +18,66 @@
   </div>
 </header>
 <div class="banner"> Welcome! </div>
-<div class="container">
-  <h2>What is Lorem Ipsum?</h2>
-  <p><b>Lorem Ipsum </b>is simply dummy text of he printing and typesetting industry. Lorem Ipsum has been the
-    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
-    to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-    typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
-    containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including
-    versions of Lorem Ipsum.</p>
+
+    <script>
+      var consoleValues = ["Personal Computer","PlayStation 4", "X Box One"];
+      var consolePercentige = (1/(consoleValues.length-1))*100;
+      var genreValues = [
+      "Action","Adventure","Sports","Shooting","Musical","Fighting","Racing"
+      ];
+      var genrePercentige = (1/(genreValues.length-1))*100;
+      var el;
+      $(document).ready(function() {
+        for(var i=0;i<consoleValues.length;i++){
+        el=$('<label>'+ consoleValues[i] +'</label>').css('left',
+         ((i==0) ? '0%': (i*consolePercentige)-4+'%') );
+        $("#consoleSlider").append(el);
+        }
+        for(var x=0;x<genreValues.length;x++){
+        el=$('<label>'+ genreValues[x] +'</label>').css('left',
+         ((x==0) ? '0%': (x*genrePercentige)+'%') );
+        $("#genreSlider").append(el);
+        }
+        
+      });
+      
+      $(function() {
+          $( "#consoleSlider" ).slider({
+            value:0,
+            min:0,
+            max:2
+          });
+       });
+
+        $(function() {
+          $( "#genreSlider" ).slider({
+            value:0,
+            min:0,
+            max:6
+          });
+       });
+
+        $(function() {
+          $( "#ageSlider" ).slider();
+       });
+    </script>
+    <div class="container">
+      <h2>What is Lorem Ipsum?</h2>
+      <p><b>Lorem Ipsum </b>is simply dummy text of he printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+      <div id="sliders" >
+          <p>Console:</p>
+          <div id="consoleSlider" style="margin-bottom:60px"></div>
+          <p>Genre:</p>
+          <div id="genreSlider" style="margin-bottom:60px"></div>
+          <p>Age:</p>
+          <div id="ageSlider" style="margin-bottom:60px"></div>
+      </div>
+      <span style="float:right; margin-bottom:50px"><button>Clear Info</button><button style="margin-left:10px">Submit</button></span>
 
 </div>
 
-<div class="slidecontainer">
-  <input type="range" min="1" max="3" value="1" class="slider" id="myRangeConsole">
-  <p>Value: <span id="OConsole"></span></p>
-</div>
-<div class="slidecontainer">
-  <input type="range" min="1" max="7" value="1" class="slider" id="myRangeGenre">
-  <p>Value: <span id="Ogenre"></span></p>
-</div>
-<div class="slidecontainer">
-  <input type="range" min="1" max="100" value="1" class="slider" id="myRangeAge">
-  <p>Value: <span id="Oageres"></span></p>
-</div>
 
-
-<!--slider1 de valores console -1-3
-slider2 genre 1-7
-slider3 age resctricion 1-100 -->
 
 <div class="bottom-nav fixed-bottom">
   <ul class="nav">
