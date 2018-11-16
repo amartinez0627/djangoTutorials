@@ -1,45 +1,68 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'gamefinderapp/css/index-style.css' %}">
 <script src="{% static 'gamefinderapp/js/index-js.js' %}"></script>
+<script src="{% static 'gamefinderapp/js/RangeSlide.js' %}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 
 <header class="header">
-        <div class="container">
-          <h1 class="logo">GameFinderApp</h1>
-          <ul class="nav">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Contact Us</a></li>
-          </ul>
-        </div>
-      </header>
-      <div class="banner"> Welcome! </div>
-      <div class="container">
-        <h2>What is Lorem Ipsum?</h2>
-        <p><b>Lorem Ipsum </b>is simply dummy text of he printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-      
-        </div>
-          
-          <div class="bottom-nav fixed-bottom">
-            <ul class="nav">
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-              <li><a href="#"><i class="fa fa-rss"></i></a></li>
-            </ul>
-          </div>
-          <footer class="footer">
-          <div class="container">
-              <ul class="nav">
-                  <li><a href="#fake">Terms and Conditions</a> </li>
-                  <li>|</li>
-                  <li><a href="#fake">Search Terms</a> </li>
-                  <li>|</li>
-                  <li><a href="#fake">Privacy Notification</a> </li>
-                 
-              </ul>
-          </div>
-            <p class="copy"> Copy rights @ </p>
-      </footer>
- 
+  <div class="container">
+    <h1 class="logo">GameFinderApp</h1>
+    <ul class="nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+  </div>
+</header>
+<div class="banner"> Welcome! </div>
+<div class="container">
+  <h2>What is Lorem Ipsum?</h2>
+  <p><b>Lorem Ipsum </b>is simply dummy text of he printing and typesetting industry. Lorem Ipsum has been the
+    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
+    to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
+    typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+    containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including
+    versions of Lorem Ipsum.</p>
+
+</div>
+
+<div class="slidecontainer">
+  <input type="range" min="1" max="3" value="1" class="slider" id="myRangeConsole">
+  <p>Value: <span id="OConsole"></span></p>
+</div>
+<div class="slidecontainer">
+  <input type="range" min="1" max="7" value="1" class="slider" id="myRangeGenre">
+  <p>Value: <span id="Ogenre"></span></p>
+</div>
+<div class="slidecontainer">
+  <input type="range" min="1" max="100" value="1" class="slider" id="myRangeAge">
+  <p>Value: <span id="Oageres"></span></p>
+</div>
+
+
+<!--slider1 de valores console -1-3
+slider2 genre 1-7
+slider3 age resctricion 1-100 -->
+
+<div class="bottom-nav fixed-bottom">
+  <ul class="nav">
+    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+    <li><a href="#"><i class="fa fa-rss"></i></a></li>
+  </ul>
+</div>
+<footer class="footer">
+  <div class="container">
+    <ul class="nav">
+      <li><a href="#fake">Terms and Conditions</a> </li>
+      <li>|</li>
+      <li><a href="#fake">Search Terms</a> </li>
+      <li>|</li>
+      <li><a href="#fake">Privacy Notification</a> </li>
+
+    </ul>
+  </div>
+  <p class="copy"> Copy rights @ </p>
+</footer>
