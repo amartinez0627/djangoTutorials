@@ -11,7 +11,7 @@
   <div class="container">
     <h1 class="logo">GameFinderApp</h1>
     <ul class="nav">
-      <li><a href="#">Home</a></li>
+      <li><a href="">Home</a></li>
       <li><a href="#">About Us</a></li>
       <li><a href="#">Contact Us</a></li>
       <li><a href="{% url 'admin:index' %}">Admin</a></li>
@@ -79,10 +79,10 @@
 
         function onClickSubmit(){
           var consoleParam, genrePparam, agePparam;
-          consoleParam = consoleValues[$("#consoleSlider").slider("value")];
-          genrePparam = genreValues[$("#genreSlider").slider("value")];
+          consoleParam = $("#consoleSlider").slider("value");
+          genrePparam = $("#genreSlider").slider("value");
           agePparam = $("#ageSlider").slider("value");
-          window.location.href = "/"+consoleParam+"/"+genrePparam+"/"+agePparam+"/results";
+          window.location.href = consoleParam+"/"+genrePparam+"/"+agePparam+"/results";
         }
     </script>
     <div class="container">

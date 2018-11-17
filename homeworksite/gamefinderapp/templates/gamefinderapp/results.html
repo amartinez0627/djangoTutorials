@@ -1,0 +1,70 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'gamefinderapp/css/index-style.css' %}">
+<script src="{% static 'gamefinderapp/js/index-js.js' %}"></script>
+<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+<header class="header">
+  <div class="container">
+    <h1 class="logo">GameFinderApp</h1>
+    <ul class="nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Contact Us</a></li>
+      <li><a href="{% url 'admin:index' %}">Admin</a></li>
+    </ul>
+  </div>
+</header>
+
+<script>
+  var consoleValues = ["Personal Computer","PlayStation 4", "X Box One"];
+  var genreValues = [
+      "Action","Adventure","Sports","Shooting","Musical","Fighting","Racing"
+      ];
+  var ageValues=[
+    "Adults Only","Mature","Teen","EveryOne",'Early Childhood'
+  ];
+  $(document).ready(function(){
+    $("#consoleInfo").html(consoleValues[$("#consoleInfo").text]);
+  });
+
+
+
+</script>
+<div class="banner"> Results </div>
+
+    
+    <div class="container">
+      <h2>What is Lorem Ipsum?</h2>
+      <p><b>Lorem Ipsum </b>is simply dummy text of he printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+      {% if game_found %}
+        <div>Console: <span id="consoleInfo">{{ game_found.console }}</span></div>
+        <div>Genre: <span id="genreInfo">{{ game_found.genre }}</span></div>
+        <div>Age Restriction: <span id="ageInfo" style="margin-bottom:20px">{{ game_found.age_restriction }}</span></div>
+        <img src="{{ game_found.game_image.url }}">
+      {% endif %}
+</div>
+
+
+
+<div class="bottom-nav fixed-bottom">
+  <ul class="nav">
+    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+    <li><a href="#"><i class="fa fa-rss"></i></a></li>
+  </ul>
+</div>
+<footer class="footer">
+  <div class="container">
+    <ul class="nav">
+      <li><a href="#fake">Terms and Conditions</a> </li>
+      <li>|</li>
+      <li><a href="#fake">Search Terms</a> </li>
+      <li>|</li>
+      <li><a href="#fake">Privacy Notification</a> </li>
+
+    </ul>
+  </div>
+  <p class="copy"> Copy rights @ </p>
+</footer>
