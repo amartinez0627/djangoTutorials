@@ -14,6 +14,7 @@
       <li><a href="#">Home</a></li>
       <li><a href="#">About Us</a></li>
       <li><a href="#">Contact Us</a></li>
+      <li><a href="{% url 'admin:index' %}">Admin</a></li>
     </ul>
   </div>
 </header>
@@ -35,7 +36,7 @@
         }
         for(var x=0;x<genreValues.length;x++){
         el=$('<label>'+ genreValues[x] +'</label>').css('left',
-         ((x==0) ? '0%': (x*genrePercentige)+'%') );
+         ((x==0) ? '0%': (x*genrePercentige)-4+'%') );
         $("#genreSlider").append(el);
         }
         
@@ -58,8 +59,31 @@
        });
 
         $(function() {
-          $( "#ageSlider" ).slider();
+          $( "#ageSlider" ).slider({
+            value:0,
+            min:0,
+            max:100,
+            slide: function(event,ui){
+              $("#ageLabel").html(ui.value);
+            }
+          });
+          $("#ageLabel").html( $("#ageSlider").slider("value"));
        });
+
+       function onClickClear(){
+        $("#consoleSlider").slider("value",0);
+        $("#genreSlider").slider("value",0);
+        $("#ageSlider").slider("value",0);
+        $("#ageLabel").html("0");
+        }
+
+        function onClickSubmit(){
+          var consoleParam, genrePparam, agePparam;
+          consoleParam = consoleValues[$("#consoleSlider").slider("value")];
+          genrePparam = genreValues[$("#genreSlider").slider("value")];
+          agePparam = $("#ageSlider").slider("value");
+          window.location.href = "/"+consoleParam+"/"+genrePparam+"/"+agePparam+"/results";
+        }
     </script>
     <div class="container">
       <h2>What is Lorem Ipsum?</h2>
@@ -67,13 +91,16 @@
 
       <div id="sliders" >
           <p>Console:</p>
-          <div id="consoleSlider" style="margin-bottom:60px"></div>
+          <div id="consoleSlider" style="margin-bottom:80px"></div>
           <p>Genre:</p>
-          <div id="genreSlider" style="margin-bottom:60px"></div>
-          <p>Age:</p>
-          <div id="ageSlider" style="margin-bottom:60px"></div>
+          <div id="genreSlider" style="margin-bottom:80px"></div>
+          <div id="ageSlider" style="margin-bottom:80px">
+            <label>Age: <span id="ageLabel"></span></label>
+          </div>
       </div>
-      <span style="float:right; margin-bottom:50px"><button>Clear Info</button><button style="margin-left:10px">Submit</button></span>
+      <script></script>
+      <span style="float:right; margin-bottom:50px"><button id="clearBtn" onclick="onClickClear()">Clear Info</button>
+        <button id="submintBtn" style="margin-left:10px" onclick="onClickSubmit()">Submit</button></span>
 
 </div>
 
